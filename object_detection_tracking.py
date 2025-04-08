@@ -4,13 +4,12 @@ import cv2
 from helper import create_video_writer
 from deep_sort_realtime.deepsort_tracker import DeepSort
 
-
 CONFIDENCE_THRESHOLD = 0.8
 GREEN = (0, 255, 0)
 WHITE = (255, 255, 255)
 
 # initialize the video capture object
-video_cap = cv2.VideoCapture("4.mp4")
+video_cap = cv2.VideoCapture("11.mp4")
 # initialize the video writer object
 writer = create_video_writer(video_cap, "output.mp4")
 
@@ -18,10 +17,8 @@ writer = create_video_writer(video_cap, "output.mp4")
 model = YOLO("yolov8n.pt")
 tracker = DeepSort(max_age=50)
 
-
 while True:
     start = datetime.datetime.now()
-
     ret, frame = video_cap.read()
 
     if not ret:
